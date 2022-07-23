@@ -32,6 +32,9 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: test --build-file test.gradle
+      - name: Clean prepared tests
+        run: rm -fR ${{ github.workspace }}/build/reports/tests/test
+        shell: bash
       - name: Run submitted tests
         uses: gradle/gradle-build-action@v2
         with:
