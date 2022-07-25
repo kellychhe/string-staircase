@@ -32,19 +32,21 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: test --build-file test.gradle
-      - name: Clean prepared tests
-        run: rm -fR ${{ github.workspace }}/build/reports/tests/test
-        shell: bash
-      - name: Run submitted tests
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: test
       - name: Upload prepared tests report
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: prepared-tests
-          path: ${{ github.workspace }}/build/reports/tests/autotest/**
+          path: ${{ github.workspace }}/build/reports/tests/test/**
+      - name: Clean prepared tests
+        run: rm -fR ${{ github.workspace }}/build/reports/tests/test/
+        if: always()
+        shell: bash
+      - name: Run submitted tests
+        uses: gradle/gradle-build-action@v2
+        if: always()
+        with:
+          arguments: test
       - name: Upload submitted tests report
         uses: actions/upload-artifact@v3
         if: always()

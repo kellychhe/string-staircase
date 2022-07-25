@@ -27,13 +27,6 @@ task copyTests(type: Copy) {
     into "${buildDir}/autotest/"
 }
 
-task copyReport(type: Copy) {
-    from("${testReportDir}/test") {
-        include '**/*'
-    }
-    into "${testReportDir}/autotest/"
-}
-
 test {
     useJUnitPlatform()
     compileTestJava.enabled = false
@@ -47,5 +40,4 @@ test {
     testLogging {
         events 'passed', 'failed', 'skipped'
     }
-    finalizedBy copyReport
 }
