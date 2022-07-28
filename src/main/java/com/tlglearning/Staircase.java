@@ -29,7 +29,7 @@ public final class Staircase {
    * characters, without any leading spaces.
    *
    * @param height Staircase height (number of steps).
-   * @return       Array of length {@code height}..
+   * @return       Array of length {@code height}.
    */
   public static String[] buildLinearStaircase(int height) {
     int index = height;
