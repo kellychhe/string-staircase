@@ -73,7 +73,7 @@ public final class Staircase {
     }
     while (count > 0) {
       int index = count - 1;
-      String completedStair = " ".repeat(fibonacci[height-1] - fibonacci[index]) + "*".repeat(fibonacci[fibonacci[index]]);
+      String completedStair = " ".repeat(fibonacci[height-1] - fibonacci[index]) + "*".repeat(fibonacci[index]);
       staircase[height - count] = completedStair;
       count--;
     }
