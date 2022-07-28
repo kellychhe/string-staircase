@@ -56,7 +56,7 @@ public final class Staircase {
    * element will have (1 + 1) = 2 asterisks; the 4<sup>th</sup> will have (2 + 1) = 3 asterisks;
    * etc. The last element of the array should contain nothing but asterisks.
    *
-   * @param height Staircase height (number of steps).
+   * @param height Staircase height (number of steps)..
    * @return       Array of length {@code height}.
    */
   public static String[] buildFibonacciStaircase(int height) {
