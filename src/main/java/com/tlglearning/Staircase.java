@@ -1,5 +1,10 @@
 package com.tlglearning;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Defines the {@link #buildLinearStaircase(int)} and {@link #buildFibonacciStaircase(int)} methods,
  * which construct and return {@code String} arrays forming staircases of asterisks and space
@@ -27,7 +32,17 @@ public final class Staircase {
    * @return       Array of length {@code height}.
    */
   public static String[] buildLinearStaircase(int height) {
-    throw new UnsupportedOperationException("Not yet implemented"); // TODO Implement as specified for LINEAR STAIRCASE.
+    int index = height;
+    String[] staircase = new String[height];
+    char[] stair = new char[height];
+    Arrays.fill(stair, ' ');
+    while (index > 0) {
+      stair[index - 1] = '*';
+      String completedStair = String.valueOf(stair);
+      staircase[height - index] = completedStair;
+      index--;
+    }
+    return staircase;
   }
 
   /* FIBONACCI STAIRCASE */
