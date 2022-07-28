@@ -60,7 +60,24 @@ public final class Staircase {
    * @return       Array of length {@code height}.
    */
   public static String[] buildFibonacciStaircase(int height) {
-    throw new UnsupportedOperationException("Not yet implemented"); // TODO Implement as specified for FIBONACCI STAIRCASE.
+    int count = 0;
+    String[] staircase = new String[height];
+    int[] fibonacci = new int[height];
+    while (count < height){
+      if (count == 0 || count == 1){
+        fibonacci[count] = 1;
+      } else {
+        fibonacci[count] = fibonacci[count - 2] + fibonacci[count - 1];
+      }
+      count++;
+    }
+    while (count > 0) {
+      int index = count - 1;
+      String completedStair = " ".repeat(fibonacci[height-1] - fibonacci[index]) + "*".repeat(fibonacci[fibonacci[index]]);
+      staircase[height - count] = completedStair;
+      count--;
+    }
+    return staircase;
   }
 
 }
